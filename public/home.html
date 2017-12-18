@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.0.8/lib/theme-chalk/index.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <title>Eric 问答系统</title>
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/" id="title"><span class="glyphicon glyphicon-fire"></span>&nbsp;&nbsp;Eric&nbsp;&nbsp;自动问答系统</a>
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+</div><br><br><br><br><br>
+
+<div class="container" style="filter:alpha(opacity=90);opacity:0.90;">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="hero-unit well">
+                <h1>
+                    Eric
+                </h1>
+                <p style="font-size: 120%">
+                    Eric是一个集自然语言处理，统计机器学习和深度学习技术的自动问答系统。目前Eric支持常用知识问答等功能，同时Eric的用户反馈收集模块能更好地帮助Eric在问答中学习到新的知识，更好地为用户服务。
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="app" v-loading.fullscreen.lock=loading>
+
+    <el-row :gutter="0">
+        <el-col :span="4"><div class="grid-content "></div></el-col>
+        <el-col :span="8"><div class="grid-content ">
+            <h3 style="color: #4285F4;">&nbsp;问题</h3>
+            <div style="width: 97%">
+                <el-input type="textarea" style="font-size: 20px" :autosize="{ minRows: 9, maxRows: 15}" placeholder="请在此输入问题……" v-model="question"></el-input>
+            </div>
+        </div></el-col>
+        <el-col :span="8"><div class="grid-content bg-purple-light">
+            <h3 style="color: #4285F4">&nbsp;回答</h3>
+            <div style="width: 96%">
+                <!--<el-input type="textarea" :autosize="{ minRows: 13, maxRows: 15}" v-model="answer" :disabled="true"></el-input>-->
+                <div style="background-color: #f5f5f5;height: 285px;border-radius: 2%;padding:10px;font-size: 20px" v-html="answer"></div>
+            </div>
+        </div></el-col>
+        <el-col :span="4"><div class="grid-content bg-purple-light"></div></el-col>
+
+
+    </el-row>
+    <div style="text-align: center;">
+        <el-button type="primary" @click="submitQuestion" round>开始提问</el-button>
+    </div>
+
+
+
+
+
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <div align="center">
+        <a href="http://222.44.90.83/asiit" target="_blank">
+            <img alt="Iotlab logo" height="40" src="/img/iotlab-logo.png" width="40">
+            航运信息技术研究所 © 2013 -2017
+        </a>
+    </div>
+</nav>
+
+
+    <script src="https://unpkg.com/vue@2.5.11/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/element-ui@2.0.8/lib/index.js"></script>
+    <script type="text/javascript" src="js/axios.min.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>
