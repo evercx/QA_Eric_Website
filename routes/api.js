@@ -31,8 +31,9 @@ router.post('/api/v1/question', function (ctx, next) {
     }
 
     const commandFilePath = config.get("commandFilePath");
+    const pythonCommand = config.get("pythonCommand");
     const fileName = guid()+".json";
-    const command = "python " + commandFilePath + " " + question + " " + fileName;
+    const command = pythonCommand + commandFilePath + " " + question + " " + fileName;
 
     const e = execSync(command);
     var resultFilePath = config.get("homePath")+"/"+fileName;
@@ -40,7 +41,7 @@ router.post('/api/v1/question', function (ctx, next) {
     const resultStr = fs.readFileSync(resultFilePath);
     const result = JSON.parse(resultStr);
     console.log(result);
-    fs.unlink(resultFilePath)
+    fs.unlink(resultFilePath,function(err,res){})
     ctx.body = result;
     //console.log(e);
 
